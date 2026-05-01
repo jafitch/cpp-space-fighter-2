@@ -55,7 +55,7 @@ public:
 		@param isConfined True to confine the player ship to the screen, false otherwise. */
 	virtual void ConfineToScreen(const bool isConfined = true) { m_isConfinedToScreen = isConfined; }
 
-
+	
 protected:
 
 	/** @brief Sets the responsiveness of the player ship.
@@ -81,5 +81,6 @@ private:
 	bool m_isConfinedToScreen = false;
 
 	Texture* m_pTexture = nullptr;
+	
 
 };

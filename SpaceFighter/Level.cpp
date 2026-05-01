@@ -15,6 +15,7 @@ void PlayerShootsEnemy(GameObject *pObject1, GameObject *pObject2)
 	EnemyShip *pEnemyShip = (EnemyShip *)((m) ? pObject1 : pObject2);
 	Projectile *pPlayerProjectile = (Projectile *)((!m) ? pObject1 : pObject2);
 	pEnemyShip->Hit(pPlayerProjectile->GetDamage());
+	pEnemyShip->GetCurrentLevel()->AwardPlayerPoints(pEnemyShip->GetPoints());
 	pPlayerProjectile->Deactivate();
 }
 
@@ -26,8 +27,13 @@ void PlayerCollidesWithEnemy(GameObject *pObject1, GameObject *pObject2)
 	EnemyShip *pEnemyShip = (EnemyShip *)((!m) ? pObject1 : pObject2);
 	pPlayerShip->Hit(std::numeric_limits<float>::max());
 	pEnemyShip->Hit(std::numeric_limits<float>::max());
+	
 }
-
+void Level::AwardPlayerPoints(const int points)
+{
+	m_awardpoints += points;
+	std::cout << "Player awarded " << points << " points! Total: " << m_awardpoints << std::endl;
+}
 
 Level::Level()
 {

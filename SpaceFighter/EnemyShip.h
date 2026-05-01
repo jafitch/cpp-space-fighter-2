@@ -42,7 +42,7 @@ public:
 		@return Returns the collision type of the enemy ship. */
 	virtual CollisionType GetCollisionType() const { return CollisionType::Enemy | CollisionType::Ship; }
 
-
+	virtual  int GetPoints();
 protected:
 
 	/** @brief Gets the delay before the enemy ship activates,
@@ -57,5 +57,5 @@ private:
 
 	double m_activationSeconds = 0;
 
-
+	int m_points = 0;
 };

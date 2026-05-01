@@ -109,7 +109,9 @@ public:
 		return pClosest;
 	}
 
-
+	//scoring
+	virtual void AwardPlayerPoints(const int points);
+	
 protected:
 
 	/** @brief Get a pointer to the collision manager.
@@ -163,5 +165,7 @@ private:
 	virtual unsigned int GetTotalSectorCount() const { return m_totalSectorCount; }
 
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
-
+	//Scoring
+	int m_awardpoints = 0;
+	
 };
