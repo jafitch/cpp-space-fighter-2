@@ -33,6 +33,7 @@ void Level::AwardPlayerPoints(const int points)
 {
 	m_awardpoints += points;
 	std::cout << "Player awarded " << points << " points! Total: " << m_awardpoints << std::endl;
+
 }
 
 Level::Level()
@@ -253,7 +254,7 @@ void Level::Draw(SpriteBatch& spriteBatch)
 		GameObject *pGameObject = (*m_gameObjectIt);
 		pGameObject->Draw(spriteBatch);
 	}
-
+	
 	spriteBatch.End();
 
 	// Explosions use additive blending so they need to be drawn after the main sprite batch

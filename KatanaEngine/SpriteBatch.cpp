@@ -14,6 +14,7 @@
 
 #include "KatanaEngine.h"
 
+
 namespace KatanaEngine
 {
 	void SpriteBatch::Begin(const SpriteSortMode sortMode, 

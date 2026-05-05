@@ -49,6 +49,12 @@ void GameplayScreen::Draw(SpriteBatch& spriteBatch)
 	spriteBatch.Begin();
 
 	m_pLevel->Draw(spriteBatch);
-
+	
 	spriteBatch.End();
+	int points = m_pLevel->GetAwardedPoints();
+	std::string pointsText = "Score: " + std::to_string(points);
+	spriteBatch.Begin();
+	spriteBatch.DrawString(m_pResourceManager->Load<Font>("Fonts\\arial.ttf"), &pointsText, Vector2(10, 30), Color::WHITE);
+	spriteBatch.End();
+
 }

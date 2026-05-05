@@ -44,7 +44,11 @@ void EnemyShip::Hit(const float damage)
 {
 	Ship::Hit(damage);
 }
-int EnemyShip::GetPoints()
+int EnemyShip::GetPoints()const
 {
-	return m_points = 100;
+	return m_points;
+}
+void EnemyShip::SetPoints(int points)
+{
+	m_points = points;
 }

@@ -111,6 +111,7 @@ public:
 
 	//scoring
 	virtual void AwardPlayerPoints(const int points);
+	int GetAwardedPoints() const { return m_awardpoints; }
 	
 protected:
 
