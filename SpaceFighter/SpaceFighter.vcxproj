@@ -189,6 +189,7 @@
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="SpaceFighter.cpp" />
     <ClCompile Include="TriggerType.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +216,7 @@
     <ClInclude Include="Ship.h" />
     <ClInclude Include="SpaceFighter.h" />
     <ClInclude Include="TriggerType.h" />
+    <ClInclude Include="Upgrade.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

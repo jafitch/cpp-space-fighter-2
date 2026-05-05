@@ -25,6 +25,7 @@ public:
 
 	static const CollisionType Ship;
 	static const CollisionType Projectile;
+	static const CollisionType Upgrade;
 
 	CollisionType &CollisionType::operator=(const CollisionType &type)
 	{
