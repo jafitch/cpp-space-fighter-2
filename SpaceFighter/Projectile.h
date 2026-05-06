@@ -43,6 +43,9 @@ public:
 		@return The type of collision the projectile will have. */
 	virtual CollisionType GetCollisionType() const;
 
+	/** @brief Set the direction of the projectile.
+		@param direction The direction of the projectile. */
+	virtual void SetDirection(const Vector2 direction) { m_direction = direction; }
 
 protected:
 
@@ -53,10 +56,6 @@ protected:
 	/** @brief Set the amount of damage the projectile will deal.
 		@param damage The amount of damage the projectile will deal. */
 	virtual void SetDamage(const float damage) { m_damage = damage; }
-
-	/** @brief Set the direction of the projectile.
-		@param direction The direction of the projectile. */
-	virtual void SetDirection(const Vector2 direction) { m_direction = direction; }
 
 	/** @brief Get the speed of the projectile.
 		@return The speed of the projectile. */

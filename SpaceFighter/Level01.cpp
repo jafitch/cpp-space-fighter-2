@@ -4,6 +4,9 @@
 #include "BioEnemyShip.h"
 #include "BioEnemyShip2.h"
 #include "Upgrade.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 
 void Level01::LoadContent(ResourceManager& resourceManager)
@@ -39,13 +42,20 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 		Vector2 position;
 		Vector2 upgradePosition;
 
-		upgradePosition.Set(Game::GetScreenCenter().X, 0);
-		float upgradeDelay = 5.0;
+		std::srand(std::time(0));
+		int randNum = std:: rand() % Game::GetScreenWidth();
+
+		
+		//float upgradeDelay = 5.0;
+
+		
 
 		for (int i = 0; i < COUNT; i++)
 		{
 			delay += delays[i];
 			position.Set(xPositions[i] * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
+
+			upgradePosition.Set(randNum, -pTexture3->GetCenter().Y);
 
 			BioEnemyShip* pEnemy = new BioEnemyShip();
 			pEnemy->SetTexture(pTexture);
@@ -62,7 +72,7 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 			Upgrade* pUpgrade = new Upgrade();
 			pUpgrade->SetTexture(pTexture3);
 			pUpgrade->SetCurrentLevel(this);
-			pUpgrade->Initialize(position, upgradeDelay);
+			pUpgrade->Activate(Game::GetScreenWidth() / 2);
 			AddGameObject(pUpgrade);
 
 		}

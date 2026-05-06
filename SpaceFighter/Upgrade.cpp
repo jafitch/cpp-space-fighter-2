@@ -6,7 +6,7 @@ Texture* Upgrade::s_pTexture = nullptr;
 
 Upgrade::Upgrade()
 {
-	SetDirection(-Vector2::UNIT_Y);
+	SetDirection(Vector2::UNIT_Y);
 	SetCollisionRadius(9);
 }
 

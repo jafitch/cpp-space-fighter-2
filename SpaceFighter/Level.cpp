@@ -34,8 +34,8 @@ void PlayerCollidesWithEnemy(GameObject *pObject1, GameObject *pObject2)
 void PlayerCollidesWithUpgrade(GameObject* pObject1, GameObject* pObject2)
 {
 	bool m = pObject1->HasMask(CollisionType::Upgrade);
-	PlayerShip* pPlayerShip = (PlayerShip*)((m) ? pObject1 : pObject2);
-	Upgrade* pUpgrade = (Upgrade*)((!m) ? pObject1 : pObject2);
+	PlayerShip* pPlayerShip = (PlayerShip*)((!m) ? pObject1 : pObject2);
+	Upgrade* pUpgrade = (Upgrade*)((m) ? pObject1 : pObject2);
 	pUpgrade->Deactivate();
 }
 
