@@ -3,7 +3,7 @@
 #include "KatanaEngine.h"
 #include "GameObject.h"
 
-/** @brief Represents a projectile that can be fired by a weapon. */
+/** @brief Represents a upgrade pickup. */
 class Upgrade : public GameObject
 {
 
@@ -34,6 +34,15 @@ public:
 		@return The type of collision the projectile will have. */
 	virtual CollisionType GetCollisionType() const;
 
+	/** @brief Get the string representation of the projectile.
+		@return The string representation of the projectile. */
+	virtual std::string ToString() const;
+
+	/** @brief Initializes the enemy ship.
+		@param position The starting position of the enemy ship.
+		@param delaySeconds The delay before the enemy ship activates. */
+	virtual void Initialize(const Vector2 position, const double delaySeconds);
+
 
 protected:
 
@@ -57,7 +66,6 @@ protected:
 		@return The collision type of the projectile. */
 	virtual CollisionType GetProjectileType() const { return CollisionType::Upgrade; }
 
-
 private:
 
 	static Texture* s_pTexture;
@@ -67,4 +75,6 @@ private:
 	Vector2 m_direction;
 
 	bool m_wasShotByPlayer = true;
+
+	double m_delaySeconds = 0;
 };

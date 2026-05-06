@@ -21,9 +21,9 @@ void Upgrade::Update(const GameTime& gameTime)
 		Vector2 size = s_pTexture->GetSize();
 
 		// Is the projectile off the screen?
-		if (position.Y < -size.Y) Deactivate();
-		else if (position.X < -size.X) Deactivate();
-		else if (position.Y > Game::GetScreenHeight() + size.Y) Deactivate();
+		//if (position.Y < -size.Y) Deactivate();
+		//else if (position.X < -size.X) Deactivate();
+		if (position.Y > Game::GetScreenHeight() + size.Y) Deactivate();
 		else if (position.X > Game::GetScreenWidth() + size.X) Deactivate();
 	}
 
@@ -49,4 +49,16 @@ void Upgrade::Activate(const Vector2& position)
 CollisionType Upgrade::GetCollisionType() const
 {
 	return (CollisionType::Player | GetProjectileType());
+}
+
+std::string Upgrade::ToString() const
+{
+	return std::string("Player").append(" Upgrade");
+}
+
+void Upgrade::Initialize(const Vector2 position, const double delaySeconds)
+{
+	SetPosition(position);
+	m_delaySeconds = delaySeconds;
+
 }

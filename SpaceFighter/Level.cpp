@@ -2,6 +2,7 @@
 #include "Level.h"
 #include "EnemyShip.h"
 #include "Blaster.h"
+#include "Upgrade.h"
 #include "GameplayScreen.h"
 
 std::vector<Explosion *> Level::s_explosions;
@@ -29,6 +30,15 @@ void PlayerCollidesWithEnemy(GameObject *pObject1, GameObject *pObject2)
 	pEnemyShip->Hit(std::numeric_limits<float>::max());
 	
 }
+/** brief Callback function for when the player shoots an enemy. */
+void PlayerCollidesWithUpgrade(GameObject* pObject1, GameObject* pObject2)
+{
+	bool m = pObject1->HasMask(CollisionType::Upgrade);
+	PlayerShip* pPlayerShip = (PlayerShip*)((m) ? pObject1 : pObject2);
+	Upgrade* pUpgrade = (Upgrade*)((!m) ? pObject1 : pObject2);
+	pUpgrade->Deactivate();
+}
+
 void Level::AwardPlayerPoints(const int points)
 {
 	m_awardpoints += points;
@@ -72,10 +82,12 @@ Level::Level()
 	CollisionType playerShip = (CollisionType::Player | CollisionType::Ship);
 	CollisionType playerProjectile = (CollisionType::Player | CollisionType::Projectile);
 	CollisionType enemyShip = (CollisionType::Enemy | CollisionType::Ship);
+	CollisionType playerUpgrade = (CollisionType::Player | CollisionType::Upgrade);
 
 	pC->AddNonCollisionType(playerShip, playerProjectile);
 	pC->AddCollisionType(playerProjectile, enemyShip, PlayerShootsEnemy);
 	pC->AddCollisionType(playerShip, enemyShip, PlayerCollidesWithEnemy);
+	pC->AddCollisionType(playerShip, playerUpgrade, PlayerCollidesWithUpgrade);
 }
 
 Level::~Level()

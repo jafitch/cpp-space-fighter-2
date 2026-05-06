@@ -3,6 +3,7 @@
 #include "Level01.h"
 #include "BioEnemyShip.h"
 #include "BioEnemyShip2.h"
+#include "Upgrade.h"
 
 
 void Level01::LoadContent(ResourceManager& resourceManager)
@@ -12,6 +13,7 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 	// Setup enemy ships
 	Texture* pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
 	Texture* pTexture2 = resourceManager.Load<Texture>("Textures\\BioEnemyShip2.png");
+	Texture* pTexture3 = resourceManager.Load<Texture>("Textures\\Upgrade.png");
 
 		const int COUNT = 21;
 
@@ -35,6 +37,10 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 
 		float delay = 3.0; // start delay
 		Vector2 position;
+		Vector2 upgradePosition;
+
+		upgradePosition.Set(Game::GetScreenCenter().X, 0);
+		float upgradeDelay = 5.0;
 
 		for (int i = 0; i < COUNT; i++)
 		{
@@ -52,6 +58,13 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 			pEnemy2->SetCurrentLevel(this);
 			pEnemy2->Initialize(position, (float)delay);
 			AddGameObject(pEnemy2);
+
+			Upgrade* pUpgrade = new Upgrade();
+			pUpgrade->SetTexture(pTexture3);
+			pUpgrade->SetCurrentLevel(this);
+			pUpgrade->Initialize(position, upgradeDelay);
+			AddGameObject(pUpgrade);
+
 		}
 	
 	// Setup background
