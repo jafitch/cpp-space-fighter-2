@@ -38,7 +38,6 @@ public:
 		@remark If the triggerType doesn't match that of the Blaster, the command will be ignored. */
 	virtual void Fire(TriggerType triggerType);
 
-
 private:
 
 	float m_cooldown = 0;

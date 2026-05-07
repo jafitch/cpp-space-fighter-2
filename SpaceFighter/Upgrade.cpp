@@ -1,6 +1,10 @@
 
 #include "Upgrade.h"
 #include "Level.h"
+#include "GameTime.h"
+#include <iostream>
+#include <chrono>
+#include <thread>
 
 Texture* Upgrade::s_pTexture = nullptr;
 
@@ -61,4 +65,9 @@ void Upgrade::Initialize(const Vector2 position, const double delaySeconds)
 	SetPosition(position);
 	m_delaySeconds = delaySeconds;
 
+}
+
+bool Upgrade::SetUpgrade() 
+{
+	return m_IsUpgraded = true;
 }

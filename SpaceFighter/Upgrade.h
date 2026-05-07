@@ -43,6 +43,11 @@ public:
 		@param delaySeconds The delay before the enemy ship activates. */
 	virtual void Initialize(const Vector2 position, const double delaySeconds);
 
+	virtual bool IsUpgraded() { return m_IsUpgraded; }
+
+	virtual bool SetUpgrade();
+
+	bool m_IsUpgraded;
 
 protected:
 
@@ -77,4 +82,9 @@ private:
 	bool m_wasShotByPlayer = true;
 
 	double m_delaySeconds = 0;
+
+	float m_cooldown = 0;
+
+	float m_cooldownSeconds = 5;
+
 };

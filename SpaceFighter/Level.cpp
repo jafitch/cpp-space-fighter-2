@@ -32,11 +32,13 @@ void PlayerCollidesWithEnemy(GameObject *pObject1, GameObject *pObject2)
 }
 /** brief Callback function for when the player shoots an enemy. */
 void PlayerCollidesWithUpgrade(GameObject* pObject1, GameObject* pObject2)
-{
+ {
 	bool m = pObject1->HasMask(CollisionType::Upgrade);
 	PlayerShip* pPlayerShip = (PlayerShip*)((!m) ? pObject1 : pObject2);
 	Upgrade* pUpgrade = (Upgrade*)((m) ? pObject1 : pObject2);
+	Upgrade upgrade;
 	pUpgrade->Deactivate();
+	upgrade.m_IsUpgraded = true;
 }
 
 void Level::AwardPlayerPoints(const int points)
@@ -71,6 +73,7 @@ Level::Level()
 		Projectile *pProjectile = new Projectile();
 		m_projectiles.push_back(pProjectile);
 		AddGameObject(pProjectile);
+
 	}
 	
 	m_pPlayerShip->Activate();

@@ -4,9 +4,12 @@
 #include "BioEnemyShip.h"
 #include "BioEnemyShip2.h"
 #include "Upgrade.h"
+#include "GameTime.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <thread>
+#include <chrono>
 
 
 void Level01::LoadContent(ResourceManager& resourceManager)
@@ -45,10 +48,6 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 		std::srand(std::time(0));
 		int randNum = std:: rand() % Game::GetScreenWidth();
 
-		
-		//float upgradeDelay = 5.0;
-
-		
 
 		for (int i = 0; i < COUNT; i++)
 		{
