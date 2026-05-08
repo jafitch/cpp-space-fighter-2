@@ -107,6 +107,9 @@
     <ClCompile Include="Upgrade.cpp">
       <Filter>Source Files\Game Objects\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="TriBlaster.cpp">
+      <Filter>Source Files\Game Objects\Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainMenuScreen.h">
@@ -167,6 +170,9 @@
       <Filter>Source Files\Game Objects\Ships</Filter>
     </ClInclude>
     <ClInclude Include="Upgrade.h">
+      <Filter>Source Files\Game Objects\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="TriBlaster.h">
       <Filter>Source Files\Game Objects\Weapons</Filter>
     </ClInclude>
   </ItemGroup>

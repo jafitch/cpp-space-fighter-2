@@ -188,6 +188,7 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="SpaceFighter.cpp" />
+    <ClCompile Include="TriBlaster.cpp" />
     <ClCompile Include="TriggerType.cpp" />
     <ClCompile Include="Upgrade.cpp" />
     <ClCompile Include="Weapon.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="SpaceFighter.h" />
+    <ClInclude Include="TriBlaster.h" />
     <ClInclude Include="TriggerType.h" />
     <ClInclude Include="Upgrade.h" />
     <ClInclude Include="Weapon.h" />

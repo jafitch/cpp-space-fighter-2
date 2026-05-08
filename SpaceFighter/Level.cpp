@@ -2,6 +2,7 @@
 #include "Level.h"
 #include "EnemyShip.h"
 #include "Blaster.h"
+#include "TriBlaster.h"
 #include "Upgrade.h"
 #include "GameplayScreen.h"
 
@@ -36,9 +37,8 @@ void PlayerCollidesWithUpgrade(GameObject* pObject1, GameObject* pObject2)
 	bool m = pObject1->HasMask(CollisionType::Upgrade);
 	PlayerShip* pPlayerShip = (PlayerShip*)((!m) ? pObject1 : pObject2);
 	Upgrade* pUpgrade = (Upgrade*)((m) ? pObject1 : pObject2);
-	Upgrade upgrade;
 	pUpgrade->Deactivate();
-	upgrade.m_IsUpgraded = true;
+	pPlayerShip->ReceiveUpgrade();
 }
 
 void Level::AwardPlayerPoints(const int points)
@@ -64,10 +64,16 @@ Level::Level()
 
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
+
 	Blaster *pBlaster = new Blaster("Main Blaster");
 	pBlaster->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBlaster, Vector2::UNIT_Y * -20);
-
+	
+	TriBlaster* pTriBlaster = new TriBlaster("TriBlaster");
+	pTriBlaster->SetProjectilePool(&m_projectiles);
+	pTriBlaster->Dectivate();
+	m_pPlayerShip->AttachItem(pTriBlaster, Vector2::UNIT_Y * -20);
+	
 	for (int i = 0; i < 100; i++)
 	{
 		Projectile *pProjectile = new Projectile();

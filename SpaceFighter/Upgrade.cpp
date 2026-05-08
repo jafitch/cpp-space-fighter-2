@@ -66,8 +66,3 @@ void Upgrade::Initialize(const Vector2 position, const double delaySeconds)
 	m_delaySeconds = delaySeconds;
 
 }
-
-bool Upgrade::SetUpgrade() 
-{
-	return m_IsUpgraded = true;
-}

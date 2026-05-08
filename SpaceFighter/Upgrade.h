@@ -43,12 +43,6 @@ public:
 		@param delaySeconds The delay before the enemy ship activates. */
 	virtual void Initialize(const Vector2 position, const double delaySeconds);
 
-	virtual bool IsUpgraded() { return m_IsUpgraded; }
-
-	virtual bool SetUpgrade();
-
-	bool m_IsUpgraded;
-
 protected:
 
 	/** @brief Set the speed of the projectile.
