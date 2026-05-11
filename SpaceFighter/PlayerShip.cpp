@@ -1,6 +1,9 @@
 
 #include "PlayerShip.h"
 #include "Level.h"
+#include "Blaster.h"
+#include "TriBlaster.h"
+#include "Weapon.h"
 
 void PlayerShip::LoadContent(ResourceManager& resourceManager)
 {
@@ -12,6 +15,7 @@ void PlayerShip::LoadContent(ResourceManager& resourceManager)
 	AudioSample* pAudio = resourceManager.Load<AudioSample>("Audio\\Effects\\Laser.wav");
 	pAudio->SetVolume(0.5f);
 	GetWeapon("Main Blaster")->SetFireSound(pAudio);
+	GetWeapon("TriBlaster")->SetFireSound(pAudio);
 
 	SetPosition(Game::GetScreenCenter() + Vector2::UNIT_Y * 300);
 
@@ -129,4 +133,11 @@ Vector2 PlayerShip::GetHalfDimensions() const
 void PlayerShip::SetResponsiveness(const float responsiveness)
 {
 	m_responsiveness = Math::Clamp(0, 1, responsiveness);
+}
+
+void PlayerShip::ReceiveUpgrade() 
+{
+	
+	GetWeapon("Main Blaster")->Dectivate();
+	GetWeapon("TriBlaster")->Activate();
 }

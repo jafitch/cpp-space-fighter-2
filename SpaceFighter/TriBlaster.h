@@ -4,15 +4,15 @@
 #include "Weapon.h"
 
 /** @brief Represents a blaster weapon that can be fired by a game object. */
-class Blaster : public Weapon
+class TriBlaster : public Weapon
 {
 
 public:
 
 	/** @brief Instantiate a blaster object.
 		@param isActive A flag to determine if the weapon is active. */
-	Blaster(const std::string &key) : Weapon(key) { }
-	virtual ~Blaster() { }
+	TriBlaster(const std::string& key) : Weapon(key) {}
+	virtual ~TriBlaster() {}
 
 	/** @brief Update the blaster.
 		@param gameTime A reference to the game time object. */

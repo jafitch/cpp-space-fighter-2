@@ -3,6 +3,13 @@
 #include "Level01.h"
 #include "BioEnemyShip.h"
 #include "BioEnemyShip2.h"
+#include "Upgrade.h"
+#include "GameTime.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <thread>
+#include <chrono>
 
 
 void Level01::LoadContent(ResourceManager& resourceManager)
@@ -12,6 +19,7 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 	// Setup enemy ships
 	Texture* pTexture = resourceManager.Load<Texture>("Textures\\BioEnemyShip.png");
 	Texture* pTexture2 = resourceManager.Load<Texture>("Textures\\BioEnemyShip2.png");
+	Texture* pTexture3 = resourceManager.Load<Texture>("Textures\\Upgrade.png");
 
 		const int COUNT = 21;
 
@@ -35,11 +43,18 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 
 		float delay = 3.0; // start delay
 		Vector2 position;
+		Vector2 upgradePosition;
+
+		std::srand(std::time(0));
+		int randNum = std:: rand() % Game::GetScreenWidth();
+
 
 		for (int i = 0; i < COUNT; i++)
 		{
 			delay += delays[i];
 			position.Set(xPositions[i] * Game::GetScreenWidth(), -pTexture->GetCenter().Y);
+
+			upgradePosition.Set(randNum, -pTexture3->GetCenter().Y);
 
 			BioEnemyShip* pEnemy = new BioEnemyShip();
 			pEnemy->SetTexture(pTexture);
@@ -52,6 +67,13 @@ void Level01::LoadContent(ResourceManager& resourceManager)
 			pEnemy2->SetCurrentLevel(this);
 			pEnemy2->Initialize(position, (float)delay);
 			AddGameObject(pEnemy2);
+
+			Upgrade* pUpgrade = new Upgrade();
+			pUpgrade->SetTexture(pTexture3);
+			pUpgrade->SetCurrentLevel(this);
+			pUpgrade->Activate(Game::GetScreenWidth() / 2);
+			AddGameObject(pUpgrade);
+
 		}
 	
 	// Setup background
