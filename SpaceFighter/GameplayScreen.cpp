@@ -42,6 +42,7 @@ void GameplayScreen::HandleInput(const InputState& input)
 void GameplayScreen::Update(const GameTime& gameTime)
 {
 	m_pLevel->Update(gameTime);
+	
 }
 
 void GameplayScreen::Draw(SpriteBatch& spriteBatch)
@@ -53,8 +54,11 @@ void GameplayScreen::Draw(SpriteBatch& spriteBatch)
 	spriteBatch.End();
 	int points = m_pLevel->GetAwardedPoints();
 	std::string pointsText = "Score: " + std::to_string(points);
+	int waves = m_pLevel->GetWaveNumber();
+	std::string waveText = "Wave: " + std::to_string(waves);
 	spriteBatch.Begin();
 	spriteBatch.DrawString(m_pResourceManager->Load<Font>("Fonts\\arial.ttf"), &pointsText, Vector2(10, 30), Color::WHITE);
+	spriteBatch.DrawString(m_pResourceManager->Load<Font>("Fonts\\arial.ttf"), &waveText, Vector2(10, 50), Color::WHITE);
 	spriteBatch.End();
 
 }

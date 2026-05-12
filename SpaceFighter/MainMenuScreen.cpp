@@ -72,7 +72,7 @@ void MainMenuScreen::Update(const GameTime& gameTime)
 void MainMenuScreen::Draw(SpriteBatch& spriteBatch)
 {
 	spriteBatch.Begin();
-	int highscore = Level::GetHighScore();
+	
 	spriteBatch.Draw(m_pTexture, m_texturePosition, Color::WHITE * GetAlpha(), m_pTexture->GetCenter());
 	MenuScreen::Draw(spriteBatch);
 	spriteBatch.End();

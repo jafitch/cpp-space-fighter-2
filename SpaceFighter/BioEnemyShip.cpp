@@ -9,6 +9,7 @@ BioEnemyShip::BioEnemyShip()
 	SetMaxHitPoints(1);
 	SetCollisionRadius(20);
 	SetPoints(100);
+	
 }
 
 
@@ -21,6 +22,7 @@ void BioEnemyShip::Update(const GameTime& gameTime)
 		TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
 
 		if (!IsOnScreen()) Deactivate();
+		GetCurrentLevel()->SetWaveNumber(m_waveNumber);
 	}
 
 	EnemyShip::Update(gameTime);

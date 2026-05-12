@@ -47,15 +47,10 @@ void Level::AwardPlayerPoints(const int points)
 	
 
 }
-int Level::CountActiveEnemies() const
+void Level::SetWaveNumber(int waveNumber)
 {
-	int count = 0;
-	for (GameObject* pObj : m_gameObjects)
-		if (pObj->IsActive() && pObj->HasMask(CollisionType::Enemy))
-			count++;
-	return count;
+	m_waveNumber = waveNumber;
 }
-
 Level::Level()
 {
 	m_sectorSize.X = 64;
@@ -278,7 +273,7 @@ void Level::Draw(SpriteBatch& spriteBatch)
 	if (m_pBackground) spriteBatch.Draw(m_pBackground, Vector2::ZERO, Color::WHITE * alpha);
 
 	m_gameObjectIt = m_gameObjects.begin();
-	for (; m_gameObjectIt != m_gameObjects.end(); m_gameObjectIt++)
+ 	for (; m_gameObjectIt != m_gameObjects.end(); m_gameObjectIt++)
 	{
 		GameObject *pGameObject = (*m_gameObjectIt);
 		pGameObject->Draw(spriteBatch);

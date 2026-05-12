@@ -112,6 +112,8 @@ public:
 	//scoring
 	virtual void AwardPlayerPoints(const int points);
 	int GetAwardedPoints() const { return m_awardpoints; }
+	virtual void SetWaveNumber(int waveNumber);
+	int GetWaveNumber()const { return m_waveNumber; }
 	
 	
 	
@@ -170,6 +172,7 @@ private:
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
 	//Scoring
 	int m_awardpoints = 0;
+	int m_waveNumber = 0;
 
 	
 };

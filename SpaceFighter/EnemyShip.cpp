@@ -18,6 +18,7 @@ void EnemyShip::Update(const GameTime& gameTime)
 		if (m_delaySeconds <= 0)
 		{
 			GameObject::Activate();
+			
 		}
 	}
 

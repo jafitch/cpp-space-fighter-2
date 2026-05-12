@@ -59,11 +59,12 @@ void Level01::InitializeEnemies(ResourceManager& resourceManager)
 	int randNum = std::rand() % Game::GetScreenWidth();
 
 	int waves= 10;
+	int waveNumber = 0;
 	
-	for(int waveCounter=0;waveCounter<waves;waveCounter++)
-	{
-		
-		
+		for (int waveCounter = 0; waveCounter < waves; waveCounter++)
+		{
+			//Level::SetWaveNumber(waveCounter+1);
+			
 			for (int i = 0; i < COUNT; i++)
 			{
 				delay += delays[i];
@@ -75,6 +76,7 @@ void Level01::InitializeEnemies(ResourceManager& resourceManager)
 				pEnemy->SetTexture(pTexture);
 				pEnemy->SetCurrentLevel(this);
 				pEnemy->Initialize(position, (float)delay);
+				pEnemy->SetWaveNumber(waveCounter + 1);
 				AddGameObject(pEnemy);
 
 				BioEnemyShip2* pEnemy2 = new BioEnemyShip2();
@@ -90,8 +92,9 @@ void Level01::InitializeEnemies(ResourceManager& resourceManager)
 				AddGameObject(pUpgrade);
 
 			}
-			
-	}
+
+		}
+	
 }
 
 
