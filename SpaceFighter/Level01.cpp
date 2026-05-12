@@ -59,11 +59,11 @@ void Level01::InitializeEnemies(ResourceManager& resourceManager)
 	int randNum = std::rand() % Game::GetScreenWidth();
 
 	int waves= 10;
-	int waveNumber = 0;
+	
 	
 		for (int waveCounter = 0; waveCounter < waves; waveCounter++)
 		{
-			//Level::SetWaveNumber(waveCounter+1);
+			
 			
 			for (int i = 0; i < COUNT; i++)
 			{
