@@ -44,8 +44,16 @@ void PlayerCollidesWithUpgrade(GameObject* pObject1, GameObject* pObject2)
 void Level::AwardPlayerPoints(const int points)
 {
 	m_awardpoints += points;
-	std::cout << "Player awarded " << points << " points! Total: " << m_awardpoints << std::endl;
+	
 
+}
+int Level::CountActiveEnemies() const
+{
+	int count = 0;
+	for (GameObject* pObj : m_gameObjects)
+		if (pObj->IsActive() && pObj->HasMask(CollisionType::Enemy))
+			count++;
+	return count;
 }
 
 Level::Level()

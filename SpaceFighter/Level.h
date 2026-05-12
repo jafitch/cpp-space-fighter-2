@@ -113,6 +113,8 @@ public:
 	virtual void AwardPlayerPoints(const int points);
 	int GetAwardedPoints() const { return m_awardpoints; }
 	
+	
+	
 protected:
 
 	/** @brief Get a pointer to the collision manager.
@@ -168,5 +170,6 @@ private:
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
 	//Scoring
 	int m_awardpoints = 0;
+
 	
 };

@@ -16,5 +16,8 @@ public:
 		@param resourceManager A reference to the game's resource manager,
 		used for loading and managing game assets (resources). */
 	virtual void LoadContent(ResourceManager& resourceManager);
+	virtual void InitializeEnemies(ResourceManager& resourceManager);
+	
+	
 };
 
