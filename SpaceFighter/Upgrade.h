@@ -69,7 +69,7 @@ private:
 
 	static Texture* s_pTexture;
 
-	float m_speed = 500; // pixels per second
+	float m_speed = 150; // pixels per second
 
 	Vector2 m_direction;
 
